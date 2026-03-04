@@ -9,7 +9,7 @@ local uis = game:GetService("UserInputService")
 local lp = plrs.LocalPlayer
 local cam = ws.CurrentCamera
 
--- config (this is useless)
+-- config (broken in some games for now, but it doesnt really matter)
 local off = 1
 
 -- sim radius
@@ -157,3 +157,4 @@ rs.Heartbeat:Connect(function()
 end)
 
 print("spidercola by pwnmaster99")
+
