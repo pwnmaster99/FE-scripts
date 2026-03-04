@@ -9,8 +9,8 @@ local uis = game:GetService("UserInputService")
 local lp = plrs.LocalPlayer
 local cam = ws.CurrentCamera
 
--- config
-local off = 3
+-- config (this is useless)
+local off = 1
 
 -- sim radius
 lp.SimulationRadius = math.huge
@@ -43,10 +43,12 @@ setCam()
 
 -- respawn
 local function applyOff(root)
-	if off == 3 then
-		root.CFrame = part.CFrame * CFrame.new(0,1000,0) --THIS IS THE NETLESS, CHANGE IT IF YOU WANT
+	if off == 1 then
+		root.CFrame = part.CFrame * CFrame.new(0,10000,0)
 	elseif off == 2 then
-		root.CFrame = part.CFrame
+		root.CFrame = part.CFrame * CFrame.new(0,5,10)
+	elseif off == 3 then
+		root.CFrame = part.CFrame * CFrame.new(0,-20,10)
 	end
 end
 
@@ -57,7 +59,7 @@ lp.CharacterAdded:Connect(function(c)
 	for _,v in next, c:GetDescendants() do
 		if v:IsA("BasePart") and v.Name ~= "Handle" then
 			rs.Heartbeat:Connect(function()
-				v.Velocity = Vector3.new(0,100000,0)
+				v.Velocity = Vector3.new(0,1000,0) -- THIS IS THE NETLESS, CHANGE IT IF YOU WANT
 			end)
 		end
 	end
@@ -153,4 +155,5 @@ rs.Heartbeat:Connect(function()
 		end
 	end
 end)
+
 print("spidercola by pwnmaster99")
